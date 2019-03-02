@@ -61,3 +61,5 @@ Be aware that I'm not a real C++ developer, so don't get too scared on what you 
 Feel free to fork and modify this repository as you need.
 
 I'm actually happy to learn from other people, so don't esistate to share with me your ideas =)
+
+Arduino Sketch coming soon!
