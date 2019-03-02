@@ -8,11 +8,11 @@ typedef struct {
     double aileron = 0.0;
     double elevator = 0.0;
     double rudder = 0.0;
-} fgfs_data;
+} FGFS_Data;
 
 int main() {
     UDPConnect* udp_connection = new UDPConnect("127.0.0.1", 2115);
-    fgfs_data test_data;
+    FGFS_Data test_data;
 
     test_data.magnetos = 1;
     test_data.aileron = 0.01;
@@ -21,4 +21,4 @@ int main() {
     cout << sizeof(test_data) << "\n";
 
     return 0; 
-} 
+}
