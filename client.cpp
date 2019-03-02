@@ -1,6 +1,5 @@
 #include "UDPConnect.h"
 
-using namespace std;
 typedef struct {
     int magnetos = 0;
     double mixture = 0.0;
@@ -17,8 +16,6 @@ int main() {
     test_data.magnetos = 1;
     test_data.aileron = 0.01;
     udp_connection->send(&test_data, sizeof(test_data));
-
-    cout << sizeof(test_data) << "\n";
 
     return 0; 
 }
