@@ -1,4 +1,3 @@
-#include "UDPConnect.h"
 #include "FlightGear.h"
 
 #include <iostream>
@@ -6,22 +5,25 @@
 using namespace std;
 
 int main() {
+    // Initialize a new FlightGear instance
+    // It will take care of sending the right
+    // data to FlighGear through UDP
     FlightGear* flightgear = new FlightGear(10540);
 
     char choice = '.';
     int intval;
     double doubleval;
 
-    UDPConnect* udp_con = new UDPConnect("127.0.0.1", 10540);
-
+    // Just a simple CLI prompt ;)
     while (true) {
         cout << "\n[a]ileron\n[e]levator\n[r]udder\n[t]hrottle\n[m]agnetos\nmi[x]ture\n[0] reset\n[q]uit\nChoose an option:\t";
         cin >> choice;
 
+        // I would really love to find a way to make this code
+        // less redundant. But without Switch - Case.
         if (choice == 'a') {
             cout << "Aileron (-1.0 to +1.0):\t";
             cin >> doubleval;
-            // udp_con->send(&doubleval, sizeof(doubleval));
             flightgear->setAlieron(doubleval)->send();
         }
         if (choice == 'e') {

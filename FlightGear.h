@@ -6,6 +6,8 @@
 #include <cstring>
 #include "UDPConnect.h"
 
+// FGFS_Data makes the exchange of binary data
+// between the client and FlightGear very easy
 typedef struct {
     int magnetos = 0;
     double mixture = 0.0;

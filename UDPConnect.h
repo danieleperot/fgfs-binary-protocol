@@ -10,6 +10,11 @@
 #include <arpa/inet.h> 
 #include <netinet/in.h> 
 
+// I chose to implement this class to learn
+// better how a UDP Connection in C++ works.
+// I'm aware that there are C++ libraries around
+// even cross-platform that to this, but I felt
+// like this was an easier solution for now =)
 class UDPConnect {
     private:
         struct sockaddr_in socket_addr_in;
@@ -22,7 +27,7 @@ class UDPConnect {
         UDPConnect(char* ip_addr, int port);
         ~UDPConnect();
         int send(const void* message, int size);
-        int close();
+        int closeStream();
     private:
         void boot();
 };
