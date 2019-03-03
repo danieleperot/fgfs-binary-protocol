@@ -33,6 +33,7 @@ class FlightGear
     FlightGear *setThrottle(float throttle);
     FlightGear *setMixture(float mixture);
     FlightGear *setMagnetos(int magnetos);
+    FlightGear *setFullData(FGFS_Data fullData);
     FlightGear *resetData();
     FGFS_Data getData();
     int send();

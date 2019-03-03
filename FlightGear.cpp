@@ -56,6 +56,12 @@ FlightGear *FlightGear::setMagnetos(int magnetos)
     return this;
 }
 
+FlightGear *FlightGear::setFullData(FGFS_Data fullData)
+{
+    this->controls = fullData;
+    return this;
+}
+
 // Set all the values of the struct to 0
 // and return the class instance
 FlightGear *FlightGear::resetData()
