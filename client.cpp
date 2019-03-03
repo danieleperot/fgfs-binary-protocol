@@ -4,64 +4,75 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
     // Initialize a new FlightGear instance
     // It will take care of sending the right
     // data to FlighGear through UDP
-    FlightGear* flightgear = new FlightGear(10540);
+    FlightGear *flightgear = new FlightGear(10540);
 
     char choice = '.';
     int intval;
-    double doubleval;
+    float floatval;
 
     // Just a simple CLI prompt ;)
-    while (true) {
+    while (true)
+    {
         cout << "\n[a]ileron\n[e]levator\n[r]udder\n[t]hrottle\n[m]agnetos\nmi[x]ture\n[0] reset\n[q]uit\nChoose an option:\t";
         cin >> choice;
 
         // I would really love to find a way to make this code
         // less redundant. But without Switch - Case.
-        if (choice == 'a') {
+        if (choice == 'a')
+        {
             cout << "Aileron (-1.0 to +1.0):\t";
-            cin >> doubleval;
-            flightgear->setAlieron(doubleval)->send();
+            cin >> floatval;
+            flightgear->setAlieron(floatval)->send();
         }
-        if (choice == 'e') {
+        if (choice == 'e')
+        {
             cout << "Elevator (-1.0 to +1.0):\t";
-            cin >> doubleval;
-            flightgear->setElevator(doubleval)->send();
+            cin >> floatval;
+            flightgear->setElevator(floatval)->send();
         }
-        if (choice == 'r') {
+        if (choice == 'r')
+        {
             cout << "Rudder (-1.0 to +1.0):\t";
-            cin >> doubleval;
-            flightgear->setRudder(doubleval)->send();
+            cin >> floatval;
+            flightgear->setRudder(floatval)->send();
         }
-        if (choice == 't') {
+        if (choice == 't')
+        {
             cout << "Throttle (0.0 to +1.0):\t";
-            cin >> doubleval;
-            flightgear->setThrottle(doubleval)->send();
+            cin >> floatval;
+            flightgear->setThrottle(floatval)->send();
         }
-        if (choice == 'x') {
+        if (choice == 'x')
+        {
             cout << "Mixture (0.0 to 1.0):\t";
-            cin >> doubleval;
-            flightgear->setMixture(doubleval)->send();
+            cin >> floatval;
+            flightgear->setMixture(floatval)->send();
         }
-        if (choice == 'm') {
+        if (choice == 'm')
+        {
             cout << "Magnetos (0 to 4):\t";
             cin >> intval;
             flightgear->setMagnetos(intval)->send();
         }
-        if (choice == '0') {
+        if (choice == '0')
+        {
             cout << "Reset...\n";
             flightgear->resetData()->send();
         }
-        if (choice == 'q') {
+        if (choice == 'q')
+        {
             exit(0);
         }
-        else {
+        else
+        {
             cout << "Option not available\n";
         }
     }
 
-    return 0; 
+    return 0;
 }
