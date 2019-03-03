@@ -10,6 +10,17 @@ typedef struct {
 
 FGFS_Data flightData;
 
+int aileronPin = A0;
+int elevatorPin = A1;
+int rudderPin = A2;
+int mixturePin = A3;
+int throttlePin = A4;
+
+float mapFloat(int initial, int from_low, int from_high, int to_low, int to_high)
+{
+    return (float) map(initial, from_low, from_high, to_low * 1000, to_high * 1000) / 1000;
+}
+
 void setup()
 {
     Serial.begin(9600);
@@ -27,6 +38,11 @@ void loop()
 {
     if (Serial.available() > 0)
     {
+        flightData.aileron = mapFloat(analogRead(aileronPin), 0, 1024, -1, 1);
+        flightData.elevator = mapFloat(analogRead(elevatorPin), 0, 1024, -1, 1);
+        flightData.rudder = mapFloat(analogRead(rudderPin), 0, 1024, -1, 1);
+        flightData.mixture = mapFloat(analogRead(mixturePin), 0, 1024, 0, 1);
+        flightData.throttle = mapFloat(analogRead(throttlePin), 0, 1024, 0, 1);
         Serial.write((uint8_t *)&flightData, sizeof(flightData));
         // Serial.flush();
         Serial.read();
