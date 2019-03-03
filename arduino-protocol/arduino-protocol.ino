@@ -15,6 +15,7 @@ int elevatorPin = A1;
 int rudderPin = A2;
 int mixturePin = A3;
 int throttlePin = A4;
+int starterPin = 2;
 
 float mapFloat(int initial, int from_low, int from_high, int to_low, int to_high)
 {
@@ -38,6 +39,11 @@ void loop()
 {
     if (Serial.available() > 0)
     {
+        if (digitalRead(starterPin))
+            flightData.magnetos = 4;
+        else
+            flightData.magnetos = 3;
+        
         flightData.aileron = mapFloat(analogRead(aileronPin), 0, 1024, -1, 1);
         flightData.elevator = mapFloat(analogRead(elevatorPin), 0, 1024, -1, 1);
         flightData.rudder = mapFloat(analogRead(rudderPin), 0, 1024, -1, 1);
