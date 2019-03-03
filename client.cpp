@@ -13,7 +13,7 @@ int main()
 
     char choice = '.';
     int intval;
-    float floatval;
+    double doubleval;
 
     // Just a simple CLI prompt ;)
     while (true)
@@ -26,32 +26,32 @@ int main()
         if (choice == 'a')
         {
             cout << "Aileron (-1.0 to +1.0):\t";
-            cin >> floatval;
-            flightgear->setAlieron(floatval)->send();
+            cin >> doubleval;
+            flightgear->setAlieron(doubleval)->send();
         }
         if (choice == 'e')
         {
             cout << "Elevator (-1.0 to +1.0):\t";
-            cin >> floatval;
-            flightgear->setElevator(floatval)->send();
+            cin >> doubleval;
+            flightgear->setElevator(doubleval)->send();
         }
         if (choice == 'r')
         {
             cout << "Rudder (-1.0 to +1.0):\t";
-            cin >> floatval;
-            flightgear->setRudder(floatval)->send();
+            cin >> doubleval;
+            flightgear->setRudder(doubleval)->send();
         }
         if (choice == 't')
         {
             cout << "Throttle (0.0 to +1.0):\t";
-            cin >> floatval;
-            flightgear->setThrottle(floatval)->send();
+            cin >> doubleval;
+            flightgear->setThrottle(doubleval)->send();
         }
         if (choice == 'x')
         {
             cout << "Mixture (0.0 to 1.0):\t";
-            cin >> floatval;
-            flightgear->setMixture(floatval)->send();
+            cin >> doubleval;
+            flightgear->setMixture(doubleval)->send();
         }
         if (choice == 'm')
         {

@@ -20,31 +20,31 @@ FlightGear::~FlightGear()
 // I would want to improve the code by finding a wait to not
 // repeat all of these functions and make it easier to just
 // add a new property in the protocol
-FlightGear *FlightGear::setAlieron(float aileron)
+FlightGear *FlightGear::setAlieron(double aileron)
 {
     this->controls.aileron = aileron;
     return this;
 }
 
-FlightGear *FlightGear::setElevator(float elevator)
+FlightGear *FlightGear::setElevator(double elevator)
 {
     this->controls.elevator = elevator;
     return this;
 }
 
-FlightGear *FlightGear::setRudder(float rudder)
+FlightGear *FlightGear::setRudder(double rudder)
 {
     this->controls.rudder = rudder;
     return this;
 }
 
-FlightGear *FlightGear::setThrottle(float throttle)
+FlightGear *FlightGear::setThrottle(double throttle)
 {
     this->controls.throttle = throttle;
     return this;
 }
 
-FlightGear *FlightGear::setMixture(float mixture)
+FlightGear *FlightGear::setMixture(double mixture)
 {
     this->controls.mixture = mixture;
     return this;

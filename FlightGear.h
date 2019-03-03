@@ -11,11 +11,11 @@
 typedef struct
 {
     int magnetos = 0;
-    float mixture = 0.0;
-    float throttle = 0.0;
-    float aileron = 0.0;
-    float elevator = 0.0;
-    float rudder = 0.0;
+    double mixture = 0.0;
+    double throttle = 0.0;
+    double aileron = 0.0;
+    double elevator = 0.0;
+    double rudder = 0.0;
 } FGFS_Data;
 
 class FlightGear
@@ -27,11 +27,11 @@ class FlightGear
   public:
     FlightGear(int port, char *addr = "127.0.0.1");
     ~FlightGear();
-    FlightGear *setAlieron(float aileron);
-    FlightGear *setElevator(float elevator);
-    FlightGear *setRudder(float rudder);
-    FlightGear *setThrottle(float throttle);
-    FlightGear *setMixture(float mixture);
+    FlightGear *setAlieron(double aileron);
+    FlightGear *setElevator(double elevator);
+    FlightGear *setRudder(double rudder);
+    FlightGear *setThrottle(double throttle);
+    FlightGear *setMixture(double mixture);
     FlightGear *setMagnetos(int magnetos);
     FlightGear *setFullData(FGFS_Data fullData);
     FlightGear *resetData();
