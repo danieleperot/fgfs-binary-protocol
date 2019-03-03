@@ -8,6 +8,7 @@ typedef struct {
     float aileron = 0.0;
     float elevator = 0.0;
     float rudder = 0.0;
+    bool starter = false;
 } ARDUINO_Data;
 
 int main()
@@ -31,15 +32,17 @@ int main()
         convertData.mixture = (double) fromArduino.mixture;
         convertData.throttle = (double) fromArduino.throttle;
         convertData.magnetos = fromArduino.magnetos;
+        convertData.starter = fromArduino.starter;
         flightgear->setFullData(convertData)->send();
         printf(
-            "Aileron: %f, Elevator: %f, Rudder: %f, Mixture: %f, Throttle: %f, Magnetos: %d\n",
+            "Aileron: %f, Elevator: %f, Rudder: %f, Mixture: %f, Throttle: %f, Magnetos: %d, Starter: %d\n",
             fromArduino.aileron,
             fromArduino.elevator,
             fromArduino.rudder,
             fromArduino.mixture,
             fromArduino.throttle,
-            fromArduino.magnetos
+            fromArduino.magnetos,
+            fromArduino.starter
         );
     }
 

@@ -56,6 +56,12 @@ FlightGear *FlightGear::setMagnetos(int magnetos)
     return this;
 }
 
+FlightGear *FlightGear::setStarter(bool starter)
+{
+    this->controls.starter = starter;
+    return this;
+}
+
 FlightGear *FlightGear::setFullData(FGFS_Data fullData)
 {
     this->controls = fullData;
@@ -72,6 +78,7 @@ FlightGear *FlightGear::resetData()
     this->controls.throttle = 0.0;
     this->controls.mixture = 0.0;
     this->controls.magnetos = 0;
+    this->controls.starter = false;
 }
 
 // Return FGFS_Data for debug purposes

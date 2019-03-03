@@ -6,6 +6,7 @@ typedef struct {
     float aileron = 0.0;
     float elevator = 0.0;
     float rudder = 0.0;
+    bool starter = false;
 } FGFS_Data;
 
 FGFS_Data flightData;
@@ -27,12 +28,6 @@ void setup()
     Serial.begin(9600);
     Serial.write(0x01);
     Serial.flush();
-    flightData.magnetos = 3;
-    flightData.mixture = 0.8;
-    flightData.throttle = 0.3;
-    flightData.aileron = 1;
-    flightData.elevator = -1;
-    flightData.rudder = 0.5;
 }
 
 void loop()
@@ -40,9 +35,15 @@ void loop()
     if (Serial.available() > 0)
     {
         if (digitalRead(starterPin))
+        {
+            flightData.starter = true;
             flightData.magnetos = 4;
+        }
         else
+        {
+            flightData.starter = false;
             flightData.magnetos = 3;
+        }
         
         flightData.aileron = mapFloat(analogRead(aileronPin), 0, 1024, -1, 1);
         flightData.elevator = mapFloat(analogRead(elevatorPin), 0, 1024, -1, 1);
@@ -50,7 +51,6 @@ void loop()
         flightData.mixture = mapFloat(analogRead(mixturePin), 0, 1024, 0, 1);
         flightData.throttle = mapFloat(analogRead(throttlePin), 0, 1024, 0, 1);
         Serial.write((uint8_t *)&flightData, sizeof(flightData));
-        // Serial.flush();
         Serial.read();
     }
 }

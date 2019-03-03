@@ -16,6 +16,7 @@ typedef struct
     double aileron = 0.0;
     double elevator = 0.0;
     double rudder = 0.0;
+    bool starter = false;
 } FGFS_Data;
 
 class FlightGear
@@ -33,6 +34,7 @@ class FlightGear
     FlightGear *setThrottle(double throttle);
     FlightGear *setMixture(double mixture);
     FlightGear *setMagnetos(int magnetos);
+    FlightGear *setStarter(bool starter);
     FlightGear *setFullData(FGFS_Data fullData);
     FlightGear *resetData();
     FGFS_Data getData();

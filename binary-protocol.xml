@@ -19,7 +19,7 @@
             <chunk>
                 <name>This is a byte space</name>
                 <type>int</type>
-                <node>/abc</node>
+                <node>/abc_int</node>
             </chunk>
 
             <chunk>
@@ -50,6 +50,11 @@
                 <name>Rudder</name>
                 <type>double</type>
                 <node>/controls/flight/rudder</node>
+            </chunk>
+            <chunk>
+                <name>Starter</name>
+                <type>bool</type>
+                <node>/controls/switches/starter</node>
             </chunk>
         </input>
     </generic>
