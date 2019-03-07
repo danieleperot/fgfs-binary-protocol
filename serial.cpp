@@ -1,16 +1,17 @@
 #include "ArduinoConnect.h"
 #include "FlightGear.h"
+#include <iostream>
 
 // I had to create this struct with float values
 // becuase I currently have some problems with
 // sending double data from Arduino
 typedef struct {
-    int magnetos = 0;
     float mixture = 0.0;
     float throttle = 0.0;
     float aileron = 0.0;
     float elevator = 0.0;
     float rudder = 0.0;
+    int magnetos = 0;
     bool starter = false;
 } ARDUINO_Data;
 
@@ -20,7 +21,7 @@ int main()
     ARDUINO_Data fromArduino;
     FGFS_Data convertData;
     // Connect to Arduino (default port is /dev/ttyUSB0
-    //but you can just add the port name to the constructor)"
+    // but you can just add the port name to the constructor)"
     ArduinoConnect *arduino = new ArduinoConnect();
     // Initialize FlightGear connection
     FlightGear *flightgear = new FlightGear(10540);

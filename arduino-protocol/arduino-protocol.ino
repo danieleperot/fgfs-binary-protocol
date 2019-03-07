@@ -1,12 +1,14 @@
 // Define what Arduino has to send to FlightGear
 typedef struct {
-    int magnetos = 0;
-    const int first_int_for_padding = 0;
     float mixture = 0.0;
     float throttle = 0.0;
     float aileron = 0.0;
     float elevator = 0.0;
     float rudder = 0.0;
+    // I decided to use long instead of int
+    // Because long is 4byte and it makes it
+    // easier to avoid padding problems
+    long magnetos = 0;
     bool starter = false;
 } FGFS_Data;
 
@@ -29,11 +31,15 @@ float mapFloat(int initial, int from_low, int from_high, int to_low, int to_high
 void setup()
 {
     // Initialize Serial communication
-    Serial.begin(9600);
+   Serial.begin(9600);
     // Send a byte as to say that the communication has started
-    Serial.write(0x01);
+    /* Serial.write(0x01); */
     // Flush all the Serial output
-    Serial.flush();
+    /* Serial.flush(); */
+    Serial.println(sizeof(float));
+    Serial.println(sizeof(long));
+    Serial.println(sizeof(bool));
+    Serial.println(sizeof(FGFS_Data));
 }
 
 void loop()
