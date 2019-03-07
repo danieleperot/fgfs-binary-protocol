@@ -75,10 +75,6 @@ int main()
         {
             exit(0);
         }
-        else
-        {
-            cout << "Option not available\n";
-        }
     }
 
     return 0;

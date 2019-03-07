@@ -10,12 +10,12 @@
 // between the client and FlightGear very easy
 typedef struct
 {
-    int magnetos = 0;
     double mixture = 0.0;
     double throttle = 0.0;
     double aileron = 0.0;
     double elevator = 0.0;
     double rudder = 0.0;
+    int magnetos = 0;
     bool starter = false;
 } FGFS_Data;
 
