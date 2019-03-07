@@ -14,63 +14,14 @@ FlightGear::~FlightGear()
     this->udp_connect->closeStream();
 }
 
-// These following methods just set the values of the struct
-// I like to return the instance of the class as i like
-// to concatenate methods.
-// I would want to improve the code by finding a wait to not
-// repeat all of these functions and make it easier to just
-// add a new property in the protocol
-FlightGear *FlightGear::setAlieron(double aileron)
+void FlightGear::setFullData(FGFS_Data *fullData)
 {
-    this->controls.aileron = aileron;
-    return this;
-}
-
-FlightGear *FlightGear::setElevator(double elevator)
-{
-    this->controls.elevator = elevator;
-    return this;
-}
-
-FlightGear *FlightGear::setRudder(double rudder)
-{
-    this->controls.rudder = rudder;
-    return this;
-}
-
-FlightGear *FlightGear::setThrottle(double throttle)
-{
-    this->controls.throttle = throttle;
-    return this;
-}
-
-FlightGear *FlightGear::setMixture(double mixture)
-{
-    this->controls.mixture = mixture;
-    return this;
-}
-
-FlightGear *FlightGear::setMagnetos(int magnetos)
-{
-    this->controls.magnetos = magnetos;
-    return this;
-}
-
-FlightGear *FlightGear::setStarter(bool starter)
-{
-    this->controls.starter = starter;
-    return this;
-}
-
-FlightGear *FlightGear::setFullData(FGFS_Data fullData)
-{
-    this->controls = fullData;
-    return this;
+    this->controls = *fullData;
 }
 
 // Set all the values of the struct to 0
 // and return the class instance
-FlightGear *FlightGear::resetData()
+void FlightGear::resetData()
 {
     this->controls.aileron = 0.0;
     this->controls.elevator = 0.0;

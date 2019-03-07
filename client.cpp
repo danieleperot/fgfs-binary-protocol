@@ -11,6 +11,8 @@ int main()
     // data to FlighGear through UDP
     FlightGear *flightgear = new FlightGear(10540);
 
+    FGFS_Data cli_data;
+
     char choice = '.';
     int intval;
     double doubleval;
@@ -27,54 +29,50 @@ int main()
         if (choice == 'a')
         {
             cout << "Aileron (-1.0 to +1.0):\t";
-            cin >> doubleval;
-            flightgear->setAlieron(doubleval)->send();
+            cin >> cli_data.aileron;
         }
         if (choice == 'e')
         {
             cout << "Elevator (-1.0 to +1.0):\t";
-            cin >> doubleval;
-            flightgear->setElevator(doubleval)->send();
+            cin >> cli_data.elevator;
         }
         if (choice == 'r')
         {
             cout << "Rudder (-1.0 to +1.0):\t";
-            cin >> doubleval;
-            flightgear->setRudder(doubleval)->send();
+            cin >> cli_data.rudder;
         }
         if (choice == 't')
         {
             cout << "Throttle (0.0 to +1.0):\t";
-            cin >> doubleval;
-            flightgear->setThrottle(doubleval)->send();
+            cin >> cli_data.throttle;
         }
         if (choice == 'x')
         {
             cout << "Mixture (0.0 to 1.0):\t";
-            cin >> doubleval;
-            flightgear->setMixture(doubleval)->send();
+            cin >> cli_data.mixture;
         }
         if (choice == 'm')
         {
             cout << "Magnetos (0 to 4):\t";
-            cin >> intval;
-            flightgear->setMagnetos(intval)->send();
+            cin >> cli_data.magnetos;
         }
         if (choice == 's')
         {
             cout << "Starter (0 = false, 1 = true):\t";
-            cin >> boolval;
-            flightgear->setStarter(boolval)->send();
+            cin >> cli_data.starter;
         }
         if (choice == '0')
         {
             cout << "Reset...\n";
-            flightgear->resetData()->send();
+            flightgear->resetData();
         }
         if (choice == 'q')
         {
             exit(0);
         }
+
+        flightgear->setFullData(&cli_data);
+        flightgear->send();
     }
 
     return 0;

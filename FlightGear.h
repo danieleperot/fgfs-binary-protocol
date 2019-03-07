@@ -28,15 +28,8 @@ class FlightGear
   public:
     FlightGear(int port, char *addr = "127.0.0.1");
     ~FlightGear();
-    FlightGear *setAlieron(double aileron);
-    FlightGear *setElevator(double elevator);
-    FlightGear *setRudder(double rudder);
-    FlightGear *setThrottle(double throttle);
-    FlightGear *setMixture(double mixture);
-    FlightGear *setMagnetos(int magnetos);
-    FlightGear *setStarter(bool starter);
-    FlightGear *setFullData(FGFS_Data fullData);
-    FlightGear *resetData();
+    void setFullData(FGFS_Data *fullData);
+    void resetData();
     FGFS_Data getData();
     int send();
 };

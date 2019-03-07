@@ -44,7 +44,8 @@ int main()
         convertData.starter = fromArduino.starter;
 
         // Send data to FlightGear
-        flightgear->setFullData(convertData)->send();
+        flightgear->setFullData(&convertData);
+        flightgear->send();
 
         // Print the values
         printf(
